@@ -36,7 +36,7 @@ docker run --name mon-serveur-chat-container -d -p 3000:3000 mon-serveur-chat
 
 - Accéder à l'application dans un navigateur :
 ```
-http://localhost:3000 ou http://172.26.3.180:3000 (adresse IPv4 du réseau Wi-Fi sur)
+http://localhost:3000
 ```
 ou avec l'adresse IPv4 du réseau Wi-Fi actuelle pour le faire sur un autre PC connecté au même réseau
 
