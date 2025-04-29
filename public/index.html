@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat Docker SAE 2.03</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+		h1 {
+			color: #333;
+		}
+		#message {
+			padding: 10px;
+			font-size: 16px;
+			width: 300px;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 16px;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		#chat {
+			margin-top: 20px;
+			list-style-type: none;
+			padding: 0;
+			width: 400px;
+			background: white;
+			border: 1px solid #ccc;
+			max-height: 300px;
+			overflow-y: auto;
+		}
+		#chat li {
+			padding: 8px;
+			border-bottom: 1px solid #eee;
+		}
+	</style>
+</head>
+<body>
+	<h1>Bienvenue sur le Chat</h1>
+
+	<div>
+		<input type="text" id="message" placeholder="Votre message...">
+		<button onclick="sendMessage()">Envoyer</button>
+	</div>
+
+	<ul id="chat"></ul>
+
+	<script>
+		const ws = new WebSocket('ws://' + window.location.host);
+
+		ws.onmessage = function(event) {
+			const chat = document.getElementById('chat');
+			const li = document.createElement('li');
+			li.innerText = event.data;
+			chat.appendChild(li);
+			chat.scrollTop = chat.scrollHeight;
+		};
+
+		function sendMessage() {
+			const input = document.getElementById('message');
+			if (input.value.trim() !== '') {
+				ws.send(input.value);
+				input.value = '';
+			}
+		}
+	</script>
+</body>
+</html>
