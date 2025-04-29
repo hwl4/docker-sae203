@@ -62,5 +62,5 @@ docker stop mon-serveur-chat-container
 
 - Pour supprimer l'ancien conteneur :
 ```bash
-docker rm -f mon-serveur-chat-container
+docker rm mon-serveur-chat-container
 ```
