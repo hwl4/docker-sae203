@@ -38,7 +38,7 @@ docker run --name mon-serveur-chat-container -d -p 3000:3000 mon-serveur-chat
 ```
 http://localhost:3000
 ```
-ou avec l'adresse IPv4 du réseau Wi-Fi actuelle pour le faire sur un autre PC connecté au même réseau
+ou avec l'adresse IPv4 du réseau Wi-Fi actuelle pour le faire sur un autre PC connecté au même réseau, ici celle de "eduroam"
 
 ```
 http://172.26.3.180:3000
@@ -62,5 +62,5 @@ docker stop mon-serveur-chat-container
 
 - Pour supprimer l'ancien conteneur :
 ```bash
-docker rm mon-serveur-chat-container
+docker rm -f mon-serveur-chat-container
 ```

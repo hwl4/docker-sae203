@@ -43,7 +43,7 @@
 		#chat {
 			width: 90%;
 			max-width: 600px;
-			height: 60vh;
+			height: 55vh;
 			background: var(--message-dark);
 			border-radius: 10px;
 			overflow-y: auto;
@@ -58,6 +58,27 @@
 			padding: 10px;
 			border-radius: 8px;
 			word-break: break-word;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.message img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 10px;
+			object-fit: cover;
+		}
+
+		.message-content img {
+			max-width: 200px;
+			max-height: 200px;
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 8px;
+			margin-top: 5px;
 		}
 
 		#message {
@@ -86,6 +107,17 @@
 
 	<div id="chat"></div>
 
+	<div style="margin-bottom: 10px;">
+		<label for="profileImage"><strong>Choisir une image pour la photo de profil :</strong></label><br>
+		<input type="file" id="profileImage" accept="image/*">
+	</div>
+	
+	<div style="margin-bottom: 10px;">
+		<label for="imageToSend"><strong>Choisir une image à envoyer dans le chat :</strong></label><br>
+		<input type="file" id="imageToSend" accept="image/*">
+	</div>
+	
+
 	<div>
 		<input type="text" id="message" placeholder="Votre message...">
 		<button onclick="sendMessage()">Envoyer</button>
@@ -94,36 +126,83 @@
 	<script>
 		const ws = new WebSocket('ws://' + window.location.host);
 
-		// Demander à l'utilisateur son pseudo
 		let pseudo = prompt("Entrez votre pseudo :", "Anonyme");
+		let profilePicBase64 = '';
+		let imageToSendBase64 = '';
+
+		document.getElementById('profileImage').addEventListener('change', function(event) {
+			const file = event.target.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					profilePicBase64 = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			}
+		});
+
+		document.getElementById('imageToSend').addEventListener('change', function(event) {
+			const file = event.target.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					imageToSendBase64 = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			}
+		});
 
 		ws.onmessage = function(event) {
 			const chat = document.getElementById('chat');
+			const data = JSON.parse(event.data);
+
 			const msg = document.createElement('div');
 			msg.className = 'message';
 
-			if (event.data instanceof Blob) {
-				const reader = new FileReader();
-				reader.onload = function () {
-					msg.innerText = reader.result;
-					chat.appendChild(msg);
-					chat.scrollTop = chat.scrollHeight;
-				};
-				reader.readAsText(event.data);
-			} else {
-				msg.innerText = event.data;
-				chat.appendChild(msg);
-				chat.scrollTop = chat.scrollHeight;
+			const img = document.createElement('img');
+			img.src = data.profilePic || "data:image/svg+xml;base64," + btoa('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><circle cx="20" cy="20" r="20" fill="black"/></svg>');
+			msg.appendChild(img);
+
+
+			const content = document.createElement('div');
+			content.className = 'message-content';
+
+			let html = `<strong>[${data.pseudo}]</strong><br>`;
+
+			if (data.message) {
+				html += `${data.message}<br>`;
 			}
+			if (data.image) {
+				html += `<img src="${data.image}"><br>`;
+			}
+
+			html += `<small>${data.timestamp}</small>`;
+
+			content.innerHTML = html;
+			msg.appendChild(content);
+			chat.appendChild(msg);
+			chat.scrollTop = chat.scrollHeight;
 		};
 
 		function sendMessage() {
 			const input = document.getElementById('message');
-			if (input.value.trim() !== '') {
-				const message = `[${pseudo}] ${input.value.trim()}`;
-				ws.send(message);
-				input.value = '';
-			}
+			const now = new Date();
+			const timestamp = now.toLocaleString();
+
+			const messageObj = {
+				pseudo: pseudo,
+				message: input.value.trim() || '',
+				image: imageToSendBase64 || '',
+				profilePic: profilePicBase64 || '',
+				timestamp: timestamp
+			};
+
+			ws.send(JSON.stringify(messageObj));
+
+			// Réinitialiser
+			input.value = '';
+			document.getElementById('imageToSend').value = '';
+			imageToSendBase64 = '';
 		}
 
 		function toggleTheme() {
