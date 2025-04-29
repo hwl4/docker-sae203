@@ -94,6 +94,9 @@
 	<script>
 		const ws = new WebSocket('ws://' + window.location.host);
 
+		// Demander à l'utilisateur son pseudo
+		let pseudo = prompt("Entrez votre pseudo :", "Anonyme");
+
 		ws.onmessage = function(event) {
 			const chat = document.getElementById('chat');
 			const msg = document.createElement('div');
@@ -117,7 +120,8 @@
 		function sendMessage() {
 			const input = document.getElementById('message');
 			if (input.value.trim() !== '') {
-				ws.send(input.value.trim());
+				const message = `[${pseudo}] ${input.value.trim()}`;
+				ws.send(message);
 				input.value = '';
 			}
 		}
@@ -125,12 +129,10 @@
 		function toggleTheme() {
 			const root = document.documentElement;
 			if (root.style.getPropertyValue('--background-dark') === '#2c2f33') {
-				// Passer en clair
 				root.style.setProperty('--background-dark', '#ffffff');
 				root.style.setProperty('--text-dark', '#000000');
 				root.style.setProperty('--message-dark', '#e3e5e8');
 			} else {
-				// Passer en sombre
 				root.style.setProperty('--background-dark', '#2c2f33');
 				root.style.setProperty('--text-dark', '#ffffff');
 				root.style.setProperty('--message-dark', '#40444b');
