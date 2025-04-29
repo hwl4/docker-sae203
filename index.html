@@ -2,102 +2,105 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Présentation - SAE 2.03 - Chat Docker</title>
+	<title>SAE 2.03 - Chat en Temps Réel avec Docker</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-	<header>
-		<h1>SAE 2.03 – Déploiement d'un Service Réseau</h1>
-		<h2>Projet : Chat en Temps Réel avec Docker</h2>
-		<p><strong>Présenté par :</strong> Ton Nom</p>
-		<p><strong>Date :</strong> Avril 2025</p>
-	</header>
+<header>
+	<h1>🧠 SAE 2.03 – Déploiement d’un Service Réseau</h1>
+	<h2>💬 Projet : Chat en Temps Réel avec Docker</h2>
+	<p>👤 Présenté par <strong>Ton Prénom NOM</strong> | 📅 Avril 2025</p>
+</header>
 
-	<div class="container">
+<div class="grid-layout">
 
-		<aside class="aside-right">
-			<h3>💡 Infos</h3>
+	<aside class="aside-left">
+		<h3>📌 Informations</h3>
+		<p><strong>Classe :</strong> BTS SIO SLAM</p>
+		<p><strong>Durée :</strong> 6 semaines</p>
+		<p><strong>Objectif :</strong> Installer un service réseau conteneurisé</p>
+		<hr>
+		<blockquote>
+			« L'infrastructure doit être simple, fiable, reproductible. »
+		</blockquote>
+		<img src="profile.png" alt="Illustration" class="profile-img">
+	</aside>
+
+	<main>
+
+		<section id="objectif">
+			<h2>🎯 Objectif du Projet</h2>
+			<p>
+				Créer une application web de chat temps réel avec :
+			</p>
 			<ul>
-				<li>Classe : BTS SIO SLAM</li>
-				<li>Durée : 6 semaines</li>
-				<li>Technos : HTML, CSS, JS, WebSocket, Docker</li>
+				<li>💻 Interface HTML, CSS, JavaScript</li>
+				<li>🔄 Communication WebSocket (Node.js)</li>
+				<li>📦 Déploiement avec Docker</li>
 			</ul>
-			<blockquote>
-				"Ce projet m'a permis de comprendre l'importance de l'automatisation des services réseau."
-			</blockquote>
-			<img src="profile.png" alt="Image projet ou logo" class="side-img">
-		</aside>
+		</section>
 
-		<main>
+		<section id="fonctionnalites">
+			<h2>🛠️ Fonctionnalités Implémentées</h2>
+			<ul>
+				<li>✅ Envoi de messages texte</li>
+				<li>🖼️ Envoi d’images</li>
+				<li>📝 Texte + image ensemble</li>
+				<li>🙋‍♂️ Pseudo personnalisé + photo de profil</li>
+				<li>⏱️ Affichage date + heure des messages</li>
+				<li>🌗 Thème clair / sombre dynamique</li>
+				<li>🐳 Docker : build + run du service complet</li>
+			</ul>
+		</section>
 
-			<section id="objectif">
-				<h3>🎯 Objectif du Projet</h3>
-				<p>Concevoir et déployer un service de chat en temps réel à l'aide de :</p>
-				<ul>
-					<li>Node.js + WebSocket pour le serveur</li>
-					<li>Interface HTML/CSS/JavaScript</li>
-					<li>Déploiement dans un conteneur Docker</li>
-				</ul>
-			</section>
+		<section id="architecture">
+			<h2>🧩 Architecture Technique</h2>
+			<table>
+				<tr><th>Partie</th><th>Technologie</th></tr>
+				<tr><td>Front-end</td><td>HTML, CSS, JavaScript (WebSocket)</td></tr>
+				<tr><td>Back-end</td><td>Node.js (serveur WebSocket)</td></tr>
+				<tr><td>Conteneurisation</td><td>Docker avec Dockerfile Debian</td></tr>
+			</table>
+		</section>
 
-			<section id="fonctionnalites">
-				<h3>🛠️ Fonctionnalités Implémentées</h3>
-				<ul>
-					<li>Envoi de messages texte en temps réel</li>
-					<li>Envoi d'images</li>
-					<li>Texte + image dans un seul message</li>
-					<li>Pseudo, photo de profil (ou défaut)</li>
-					<li>Date/heure d'envoi</li>
-					<li>Thème clair / sombre</li>
-					<li>Déploiement avec Docker</li>
-				</ul>
-			</section>
+		<section id="demo">
+			<h2>🎥 Démonstration</h2>
+			<p>Vous trouverez ci-dessous une capture du projet :</p>
+			<img src="screenshot.png" alt="Capture du chat" class="demo-img">
+		</section>
 
-			<section id="architecture">
-				<h3>🧩 Architecture du Projet</h3>
-				<ul>
-					<li><strong>Front-end :</strong> HTML, CSS, JavaScript (WebSocket)</li>
-					<li><strong>Back-end :</strong> Node.js</li>
-					<li><strong>Déploiement :</strong> Docker (basé sur Debian)</li>
-				</ul>
-			</section>
+		<section id="conclusion">
+			<h2>✅ Conclusion</h2>
+			<p>Cette SAE m’a permis de :</p>
+			<ul>
+				<li>⚙️ Automatiser l'installation d’un service réseau</li>
+				<li>🧠 Apprendre à utiliser WebSocket</li>
+				<li>🛠️ Utiliser Docker pour déployer facilement une app</li>
+				<li>👨‍💻 Travailler en autonomie sur un projet complet</li>
+			</ul>
+		</section>
 
-			<section id="demo">
-				<h3>🎥 Démonstration</h3>
-				<a href="screenshot.png" target="_blank" class="button">Voir la capture du chat</a>
-			</section>
+	</main>
 
-			<section id="conclusion">
-				<h3>✅ Conclusion</h3>
-				<p>Cette SAE m’a permis de :</p>
-				<ul>
-					<li>Automatiser le déploiement d’un service</li>
-					<li>Configurer un serveur WebSocket en Node.js</li>
-					<li>Travailler en autonomie sur un projet complet</li>
-				</ul>
-			</section>
+	<aside class="aside-right">
+		<h3>🧭 Sommaire</h3>
+		<nav>
+			<ul>
+				<li><a href="#objectif">🎯 Objectif</a></li>
+				<li><a href="#fonctionnalites">🛠️ Fonctionnalités</a></li>
+				<li><a href="#architecture">🧩 Architecture</a></li>
+				<li><a href="#demo">🎥 Démonstration</a></li>
+				<li><a href="#conclusion">✅ Conclusion</a></li>
+			</ul>
+		</nav>
+	</aside>
 
-		</main>
+</div>
 
-		<aside class="aside-left">
-			<h3>🧭 Sommaire</h3>
-			<nav>
-				<ul>
-					<li><a href="#objectif">🎯 Objectif</a></li>
-					<li><a href="#fonctionnalites">🛠️ Fonctionnalités</a></li>
-					<li><a href="#architecture">🧩 Architecture</a></li>
-					<li><a href="#demo">🎥 Démo</a></li>
-					<li><a href="#conclusion">✅ Conclusion</a></li>
-				</ul>
-			</nav>
-		</aside>
-
-	</div>
-
-	<footer>
-		<p>© 2025 - SAE 2.03 - BTS SIO SLAM</p>
-	</footer>
+<footer>
+	<p>© 2025 – SAE 2.03 – BTS SIO SLAM</p>
+</footer>
 
 </body>
 </html>
