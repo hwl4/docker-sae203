@@ -2,76 +2,101 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Présentation SAE 2.03 - Chat en Temps Réel</title>
+	<title>Présentation - SAE 2.03 - Chat Docker</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 	<header>
-		<h1>SAE 2.03 - Déploiement d'un service réseau</h1>
+		<h1>SAE 2.03 – Déploiement d'un Service Réseau</h1>
 		<h2>Projet : Chat en Temps Réel avec Docker</h2>
-		<p>Présenté par : <strong>Ton Prénom Nom</strong></p>
-		<p>Date : <strong>Avril 2025</strong></p>
+		<p><strong>Présenté par :</strong> Ton Nom</p>
+		<p><strong>Date :</strong> Avril 2025</p>
 	</header>
 
-	<main>
-		<section>
-			<h3>🎯 Objectif du Projet</h3>
-			<p>
-				Concevoir et déployer un service de chat en temps réel en utilisant des technologies modernes :
+	<div class="container">
+
+		<aside class="aside-right">
+			<h3>💡 Infos</h3>
+			<ul>
+				<li>Classe : BTS SIO SLAM</li>
+				<li>Durée : 6 semaines</li>
+				<li>Technos : HTML, CSS, JS, WebSocket, Docker</li>
+			</ul>
+			<blockquote>
+				"Ce projet m'a permis de comprendre l'importance de l'automatisation des services réseau."
+			</blockquote>
+			<img src="profile.png" alt="Image projet ou logo" class="side-img">
+		</aside>
+
+		<main>
+
+			<section id="objectif">
+				<h3>🎯 Objectif du Projet</h3>
+				<p>Concevoir et déployer un service de chat en temps réel à l'aide de :</p>
 				<ul>
 					<li>Node.js + WebSocket pour le serveur</li>
-					<li>Interface web simple en HTML/CSS/JS</li>
+					<li>Interface HTML/CSS/JavaScript</li>
 					<li>Déploiement dans un conteneur Docker</li>
 				</ul>
-			</p>
-		</section>
+			</section>
 
-		<section>
-			<h3>🛠️ Fonctionnalités Implémentées</h3>
-			<ul>
-				<li>Envoi de messages texte en temps réel</li>
-				<li>Envoi d'images dans le chat</li>
-				<li>Envoi de texte + image en même temps</li>
-				<li>Pseudo personnalisé et photo de profil</li>
-				<li>Affichage de la date et de l'heure des messages</li>
-				<li>Thème clair / sombre dynamique</li>
-				<li>Déploiement complet via Docker</li>
-			</ul>
-		</section>
-
-		<section>
-			<h3>🧩 Architecture du Projet</h3>
-			<p>
+			<section id="fonctionnalites">
+				<h3>🛠️ Fonctionnalités Implémentées</h3>
 				<ul>
-					<li><strong>Front-end :</strong> HTML, CSS, JavaScript (WebSocket API)</li>
-					<li><strong>Back-end :</strong> Node.js avec WebSocket natif</li>
-					<li><strong>Déploiement :</strong> Dockerfile basé sur Debian</li>
+					<li>Envoi de messages texte en temps réel</li>
+					<li>Envoi d'images</li>
+					<li>Texte + image dans un seul message</li>
+					<li>Pseudo, photo de profil (ou défaut)</li>
+					<li>Date/heure d'envoi</li>
+					<li>Thème clair / sombre</li>
+					<li>Déploiement avec Docker</li>
 				</ul>
-			</p>
-		</section>
+			</section>
 
-		<section>
-			<h3>📸 Démonstration Pratique</h3>
-			<a href="screenshot.png" target="_blank" class="button">Voir une Capture d'Écran</a>
-		</section>
-
-		<section>
-			<h3>✅ Conclusion</h3>
-			<p>
-				Ce projet m'a permis de mieux comprendre :
+			<section id="architecture">
+				<h3>🧩 Architecture du Projet</h3>
 				<ul>
-					<li>La communication en temps réel avec WebSocket</li>
-					<li>Le déploiement de services grâce à Docker</li>
-					<li>La structuration d'un projet web complet</li>
+					<li><strong>Front-end :</strong> HTML, CSS, JavaScript (WebSocket)</li>
+					<li><strong>Back-end :</strong> Node.js</li>
+					<li><strong>Déploiement :</strong> Docker (basé sur Debian)</li>
 				</ul>
-				Cette SAE a été un vrai entraînement pratique pour administrer et déployer des services réseaux modernes.
-			</p>
-		</section>
-	</main>
+			</section>
+
+			<section id="demo">
+				<h3>🎥 Démonstration</h3>
+				<a href="screenshot.png" target="_blank" class="button">Voir la capture du chat</a>
+			</section>
+
+			<section id="conclusion">
+				<h3>✅ Conclusion</h3>
+				<p>Cette SAE m’a permis de :</p>
+				<ul>
+					<li>Automatiser le déploiement d’un service</li>
+					<li>Configurer un serveur WebSocket en Node.js</li>
+					<li>Travailler en autonomie sur un projet complet</li>
+				</ul>
+			</section>
+
+		</main>
+
+		<aside class="aside-left">
+			<h3>🧭 Sommaire</h3>
+			<nav>
+				<ul>
+					<li><a href="#objectif">🎯 Objectif</a></li>
+					<li><a href="#fonctionnalites">🛠️ Fonctionnalités</a></li>
+					<li><a href="#architecture">🧩 Architecture</a></li>
+					<li><a href="#demo">🎥 Démo</a></li>
+					<li><a href="#conclusion">✅ Conclusion</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+	</div>
 
 	<footer>
-		<p>© 2025 - Projet SAE 2.03 - BTS SIO</p>
+		<p>© 2025 - SAE 2.03 - BTS SIO SLAM</p>
 	</footer>
 
 </body>
