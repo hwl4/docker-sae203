@@ -28,12 +28,14 @@
 	</aside>
 
 	<main>
+		<section id="accueil">
+			<h2>Bienvenue 👋</h2>
+			<p>Découvrez mon projet de chat en temps réel conteneurisé avec Docker !</p>
+			<button onclick="afficherSection('objectif')">Voir le projet</button>
+		</section>
 
 		<section id="objectif">
 			<h2>🎯 Objectif du Projet</h2>
-			<p>
-				Créer une application web de chat temps réel avec :
-			</p>
 			<ul>
 				<li>💻 Interface HTML, CSS, JavaScript</li>
 				<li>🔄 Communication WebSocket (Node.js)</li>
@@ -72,7 +74,6 @@
 
 		<section id="conclusion">
 			<h2>✅ Conclusion</h2>
-			<p>Cette SAE m’a permis de :</p>
 			<ul>
 				<li>⚙️ Automatiser l'installation d’un service réseau</li>
 				<li>🧠 Apprendre à utiliser WebSocket</li>
@@ -80,18 +81,18 @@
 				<li>👨‍💻 Travailler en autonomie sur un projet complet</li>
 			</ul>
 		</section>
-
 	</main>
 
 	<aside class="aside-right">
 		<h3>🧭 Sommaire</h3>
 		<nav>
 			<ul>
-				<li><a href="#objectif">🎯 Objectif</a></li>
-				<li><a href="#fonctionnalites">🛠️ Fonctionnalités</a></li>
-				<li><a href="#architecture">🧩 Architecture</a></li>
-				<li><a href="#demo">🎥 Démonstration</a></li>
-				<li><a href="#conclusion">✅ Conclusion</a></li>
+				<li><a onclick="afficherSection('accueil')">🏠 Accueil</a></li>
+				<li><a onclick="afficherSection('objectif')">🎯 Objectif</a></li>
+				<li><a onclick="afficherSection('fonctionnalites')">🛠️ Fonctionnalités</a></li>
+				<li><a onclick="afficherSection('architecture')">🧩 Architecture</a></li>
+				<li><a onclick="afficherSection('demo')">🎥 Démonstration</a></li>
+				<li><a onclick="afficherSection('conclusion')">✅ Conclusion</a></li>
 			</ul>
 		</nav>
 	</aside>
@@ -101,6 +102,19 @@
 <footer>
 	<p>© 2025 – SAE 2.03 – BTS SIO SLAM</p>
 </footer>
+
+<script>
+function afficherSection(id) {
+	document.querySelectorAll('main section').forEach(sec => {
+		sec.style.display = 'none';
+	});
+	const section = document.getElementById(id);
+	if (section) {
+		section.style.display = 'block';
+		window.scrollTo(0, 0);
+	}
+}
+</script>
 
 </body>
 </html>
